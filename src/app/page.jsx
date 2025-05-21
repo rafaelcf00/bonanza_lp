@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FaGlobe } from "react-icons/fa";
-import { GiAirplaneDeparture } from "react-icons/gi";
+import { GiAirplaneDeparture, GiCommercialAirplane } from "react-icons/gi";
 
 export default function Home() {
   return (
@@ -92,7 +92,7 @@ export default function Home() {
            <div className="border border-[#787878] w-[200px] ">
 
            </div>
-           <GiAirplaneDeparture size={44} />
+           <GiCommercialAirplane size={36} />
             <div className="border border-[#787878] w-[200px] ">
 
            </div>
