@@ -80,7 +80,7 @@ export default function Home() {
             <div className="mt-6 flex flex-col md:flex-row md:gap-x-8 gap-y-6 md:gap-y-0 items-center w-full">
               <NextLink
                 href="https://bonanzaclube.com.br/"
-                className="bg-[#EF1833] rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-[250px]"
+                className="bg-[#EF1833] rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full md:w-[250px]"
                 target="_blank"
               >
                 <FaGlobe color="white" size={18} />
@@ -89,7 +89,7 @@ export default function Home() {
                 </span>
               </NextLink>
               <Link
-                className="bg-[#EF1833] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-[250px]"
+                className="bg-[#EF1833] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full md:w-[250px]"
                 to="galeria"
                 smooth={true}
                 duration={700}
