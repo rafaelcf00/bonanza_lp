@@ -135,8 +135,8 @@ export default function Home() {
           </div>
           <div className="md:flex flex-row items-center mt-24 hidden">
             <div className="bg-[#002C52] py-12  flex flex-col items-center justify-center w-[300px]">
-              <h1 className="text-7xl font-bold">+300</h1>
-              <p className="text-2xl text-center mt-2">Associados</p>
+              <h1 className="text-7xl font-bold text-white">+300</h1>
+              <p className="text-2xl text-center mt-2 text-white">Associados</p>
             </div>
             <div className="relative py-12  flex flex-col items-center justify-center h-[250px] w-[450px]">
               <div className="absolute inset-0 bg-[url('/images/img_avioes.jpeg')] bg-cover bg-center z-0" />
@@ -144,15 +144,15 @@ export default function Home() {
               <div className="absolute inset-0 bg-[#002C52] opacity-80 z-10" />
 
               <div className="relative z-20 text-white flex flex-col items-center">
-                <h1 className="text-7xl font-bold">+1100</h1>
-                <p className="text-2xl text-center mt-2">
+                <h1 className="text-7xl font-bold text-white">+1100</h1>
+                <p className="text-2xl text-center mt-2 text-white">
                   Pessoas em nossos eventos
                 </p>
               </div>
             </div>
             <div className="bg-[#002C52] py-12 flex flex-col items-center justify-center w-[300px]">
-              <h1 className="text-7xl font-bold">+30</h1>
-              <p className="text-2xl text-center mt-2">Patrocinadores</p>
+              <h1 className="text-7xl font-bold text-white">+30</h1>
+              <p className="text-2xl text-center mt-2 text-white">Patrocinadores</p>
             </div>
           </div>
           <div className="mt-12 md:mt-44">
@@ -627,11 +627,11 @@ export default function Home() {
       </section>
       <footer className="bg-[#002C52] w-full p-6 flex flex-col items-center justify-center">
         <div className="flex items-center gap-x-8">
-          <button className="font-light">Termos & Condições</button>
-          <button>Políticas De Privacidade</button>
+          <button className="font-light text-white">Termos & Condições</button>
+          <button className="text-white">Políticas De Privacidade</button>
         </div>
         <div className="mt-4">
-          <p className="text-center md:text-start">
+          <p className="text-center md:text-start text-white">
             Bonanza Fly-in | © Copyright 2024 - Todos os direitos Reservados
           </p>
         </div>
