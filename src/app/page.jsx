@@ -77,27 +77,29 @@ export default function Home() {
                 Aguarde mais informações
               </h1>
             </div>
-            <div className="mt-6 flex flex-col md:flex-row md:gap-x-8 gap-y-6 md:gap-y-0 items-center">
-              <NextLink href="https://bonanzaclube.com.br/" className=" bg-[#EF1833] rounded-full md:rounded-tl-full md:rounded-tr-3xl px-14 py-2 flex justify-center gap-x-2 items-center w-full" target="_blank">
-                  <div>
-                    <FaGlobe color="white" size={18} />
-                  </div>
-                  <div>
-                    <h1 className="text-white text-base font-bold">
-                      Bonanza Clube
-                    </h1>
-                  </div>
+            <div className="mt-6 flex flex-col md:flex-row md:gap-x-8 gap-y-6 md:gap-y-0 items-center w-full">
+              <NextLink
+                href="https://bonanzaclube.com.br/"
+                className="bg-[#EF1833] rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-[250px]"
+                target="_blank"
+              >
+                <FaGlobe color="white" size={18} />
+                <span className="text-white text-base font-bold whitespace-nowrap">
+                  Bonanza Clube
+                </span>
               </NextLink>
-                <Link className="bg-[#EF1833] cursor-pointer rounded-full md:rounded-tr-full  px-14 py-2 flex justify-center gap-x-2 items-center w-full" to="galeria" smooth={true} duration={700} offset={-100}>
-
-                <div>
-                  <FaGlobe color="white" size={18} />
-                </div>
-                  <div className="">
-                    <h1 className="text-white text-base font-bold">Galeria</h1>
-                  </div>
-                </Link>
-
+              <Link
+                className="bg-[#EF1833] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-[250px]"
+                to="galeria"
+                smooth={true}
+                duration={700}
+                offset={-100}
+              >
+                <FaGlobe color="white" size={18} />
+                <span className="text-white text-base font-bold whitespace-nowrap">
+                  Galeria
+                </span>
+              </Link>
             </div>
           </div>
         </div>
@@ -152,7 +154,9 @@ export default function Home() {
             </div>
             <div className="bg-[#002C52] py-12 flex flex-col items-center justify-center w-[300px]">
               <h1 className="text-7xl font-bold text-white">+30</h1>
-              <p className="text-2xl text-center mt-2 text-white">Patrocinadores</p>
+              <p className="text-2xl text-center mt-2 text-white">
+                Patrocinadores
+              </p>
             </div>
           </div>
           <div className="mt-12 md:mt-44">
