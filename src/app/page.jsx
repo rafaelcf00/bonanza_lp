@@ -13,6 +13,10 @@ import NextLink from "next/link";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { useEffect, useState } from "react";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import InputMask from "react-input-mask";
 
 export default function Home() {
   const imagens = [
@@ -36,6 +40,22 @@ export default function Home() {
   ];
   const [shouldStartCount, setShouldStartCount] = useState(false);
 
+  const schema = yup.object().shape({
+    nome: yup.string().required("Nome é obrigatório"),
+    email: yup
+      .string()
+      .email("E-mail inválido")
+      .required("E-mail é obrigatório"),
+    telefone: yup
+      .string()
+      .matches(/\(\d{2}\) \d{5}-\d{4}/, "Whatsapp inválido")
+      .required("WhatsApp é obrigatório"),
+    semana: yup
+      .string()
+      .oneOf(["primeira", "segunda", "duas"], "Opção inválida")
+      .required("Semana é obrigatória"),
+  });
+
   const calculateTimeLeft = () => {
     const targetDate = new Date("2025-06-27T08:00:00");
     const now = new Date();
@@ -45,10 +65,19 @@ export default function Home() {
       return { days: "00", hours: "00", minutes: "00", seconds: "00" };
     }
 
-    const days = String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, '0');
-    const hours = String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, '0');
-    const minutes = String(Math.floor((difference / (1000 * 60)) % 60)).padStart(2, '0');
-    const seconds = String(Math.floor((difference / 1000) % 60)).padStart(2, '0');
+    const days = String(
+      Math.floor(difference / (1000 * 60 * 60 * 24))
+    ).padStart(2, "0");
+    const hours = String(
+      Math.floor((difference / (1000 * 60 * 60)) % 24)
+    ).padStart(2, "0");
+    const minutes = String(
+      Math.floor((difference / (1000 * 60)) % 60)
+    ).padStart(2, "0");
+    const seconds = String(Math.floor((difference / 1000) % 60)).padStart(
+      2,
+      "0"
+    );
 
     return { days, hours, minutes, seconds };
   };
@@ -59,8 +88,73 @@ export default function Home() {
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
-    
+
     return () => clearInterval(timer);
+  }, []);
+
+  const [message, setMessage] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = async (data) => {
+    try {
+      const formData = new URLSearchParams();
+      formData.append("nome", data.nome);
+      formData.append("email", data.email);
+      formData.append("telefone", data.telefone);
+      formData.append("semana", data.semana);
+
+      console.log(formData.toString());
+
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbzEFZf6TxijOK_P1Zzzo9U-HW6msrP1aMPN33K6D8yeAxGI5I1-U5g76FQ7aBcCZ6cw/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded", // Tipo correto para formulário
+          },
+          body: formData.toString(),
+        }
+      );
+
+      console.log(response);
+
+      if (response.ok) {
+        setMessage(
+          "Recebemos sua pré-reserva. Em breve entraremos em contato!"
+        );
+        reset();
+      } else {
+        setMessage("Erro ao cadastrar lead.");
+      }
+    } catch (error) {
+      setMessage("Erro na conexão com o Google Sheets.");
+      console.log(error);
+    }
+
+    // Resetar a mensagem após 5 segundos
+    setTimeout(() => {
+      setMessage("");
+    }, 20000);
+
+    //Link Planilha de Dados
+    //https://docs.google.com/spreadsheets/d/10XSOJdU7IgMn0rryzACb447Hrq-Cs4CfiNkbcXMmj8Q/edit?usp=sharing
+  };
+
+  const [motionX, setMotionX] = useState(-600);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setMotionX(1); // valor menor para mobile
+    } else {
+      setMotionX(-600);
+    }
   }, []);
 
   return (
@@ -82,33 +176,41 @@ export default function Home() {
             />
           </div>
           <div>
-            <h1 className="uppercase text-white font-bold text-2xl md:text-[2.5rem] leading-10 md:max-w-2xl text-center md:text-start">
+            <h1 className="uppercase text-white font-bold text-3xl md:text-[2.5rem] leading-10 md:max-w-2xl text-center md:text-start">
               20 anos do Bonanza Clube do Brasil.
             </h1>
-            <h2 className="uppercase text-[#FF0000] font-bold text-center md:text-start text-3xl md:text-5xl md:max-w-2xl mt-3">
+            <h2 className="uppercase text-[#FF0000] font-bold text-center md:text-start text-4xl md:text-5xl md:max-w-2xl mt-3">
               A grande festa!
             </h2>
           </div>
           <div className="mt-6 w-full md:w-auto px-4 md:px-0">
             <h1 className="text-white text-lg mb-2 ">Faltam:</h1>
-         <div className="flex flex-row gap-4">
-      <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
-        <h1 className="text-white font-bold text-3xl">{timeLeft.days}</h1>
-        <span className="text-center text-white">Dias</span>
-      </div>
-      <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
-        <h1 className="text-white font-bold text-3xl">{timeLeft.hours}</h1>
-        <span className="text-center text-white">Horas</span>
-      </div>
-      <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
-        <h1 className="text-white font-bold text-3xl">{timeLeft.minutes}</h1>
-        <span className="text-center text-white">Minutos</span>
-      </div>
-      <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
-        <h1 className="text-white font-bold text-3xl">{timeLeft.seconds}</h1>
-        <span className="text-center text-white">Segundos</span>
-      </div>
-    </div>
+            <div className="flex flex-row gap-4">
+              <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
+                <h1 className="text-white font-bold text-3xl">
+                  {timeLeft.days}
+                </h1>
+                <span className="text-center text-white">Dias</span>
+              </div>
+              <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
+                <h1 className="text-white font-bold text-3xl">
+                  {timeLeft.hours}
+                </h1>
+                <span className="text-center text-white">Horas</span>
+              </div>
+              <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
+                <h1 className="text-white font-bold text-3xl">
+                  {timeLeft.minutes}
+                </h1>
+                <span className="text-center text-white">Minutos</span>
+              </div>
+              <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
+                <h1 className="text-white font-bold text-3xl">
+                  {timeLeft.seconds}
+                </h1>
+                <span className="text-center text-white">Segundos</span>
+              </div>
+            </div>
             {/* <div className="mt-8">
               <h1 className="uppercase text-white text-lg text-center md:text-start">
                 Você é nosso convidado especial para o Bonanza Fly-in 2024! Clique no botão abaixo e garanta sua presença.
@@ -125,10 +227,14 @@ export default function Home() {
                 className="bg-[#EF1833] rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full md:w-[250px] hover:opacity-90 transition-all duration-200"
                 target="_blank"
               >
-                <FaGlobe color="white" size={18} />
-                <span className="text-white text-base font-bold whitespace-nowrap">
-                  Bonanza Clube
-                </span>
+                <div>
+                  <FaGlobe color="white" size={22} />
+                </div>
+                <div>
+                  <span className="text-white text-xl font-bold whitespace-nowrap">
+                    Bonanza Clube
+                  </span>
+                </div>
               </NextLink>
               <Link
                 className="bg-[#EF1833] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full md:w-[250px] hover:opacity-90 transition-all duration-200"
@@ -137,10 +243,14 @@ export default function Home() {
                 duration={900}
                 offset={0}
               >
-                <FaRegArrowAltCircleDown color="white" size={18} />
-                <span className="text-white text-base font-bold whitespace-nowrap">
-                  Galeria
-                </span>
+                <div>
+                  <FaRegArrowAltCircleDown color="white" size={22} />
+                </div>
+                <div>
+                  <span className="text-white text-xl font-bold whitespace-nowrap">
+                    Galeria
+                  </span>
+                </div>
               </Link>
             </motion.div>
           </div>
@@ -159,23 +269,25 @@ export default function Home() {
       <motion.section
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        className="min-h-screen bg-[#F0F0F0] px-4 md:px-0 flex flex-col items-center justify-center py-16"
+        className="h-auto md:min-h-screen bg-[#F0F0F0] px-4 md:px-0 flex flex-col items-center justify-center py-8 md:py-16"
       >
-        <h1 className="text-[#001C34] font-bold text-3xl md:text-5xl max-w-4xl text-center leading-16">
+        <h1 className="text-[#001C34] font-bold text-3xl md:text-5xl max-w-4xl text-center md:leading-16">
           Confira o{" "}
           <span className="font-bold text-[#EF1833]">Bonanza Fly-in</span> em
           matéria do programa AutoEsporte na GloboPlay
         </h1>
         <motion.div
-          initial={{ opacity: 0, x: -600 }}
+          initial={{ opacity: 0, x: -150 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.3 }}
-          className="my-8 flex gap-x-4 items-center"
+          className="my-8 flex gap-x-4 items-center  w-full md:justify-center"
         >
-          <div className="border border-[#787878] w-[200px] "></div>
-          <GiCommercialAirplane color="black" size={36} />
-          <div className="border border-[#787878] w-[200px] "></div>
+          <div className="border border-[#787878] w-full md:w-[200px] "></div>
+          <div>
+            <GiCommercialAirplane color="black" size={36} />
+          </div>
+          <div className="border border-[#787878] w-full md:w-[200px] "></div>
         </motion.div>
         <NextLink
           href={"https://globoplay.globo.com/v/12738416/"}
@@ -250,10 +362,10 @@ export default function Home() {
       <motion.section
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        className="bg-[#001C34]"
+        className="bg-[#001C34] px-4 md:px-0"
       >
         <div className="flex flex-col items-center justify-center  py-16">
-          <h1 className="text-[#F0F0F0] font-bold text-3xl md:text-5xl text-center leading-16 max-w-4xl">
+          <h1 className="text-[#F0F0F0] font-bold text-3xl md:text-5xl text-center md:leading-16 max-w-4xl">
             Você é nosso{" "}
             <span className="font-bold text-[#EF1833]">convidado especial</span>{" "}
             para o Bonanza Fly-in 2024!
@@ -288,15 +400,17 @@ export default function Home() {
           </h1>
         </div>
         <motion.div
-          initial={{ opacity: 0, x: -600 }}
+          initial={{ opacity: 0, x: -150 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.3 }}
-          className="my-8 flex gap-x-4 items-center"
+          className="my-8 flex gap-x-4 items-center w-full md:justify-center"
         >
-          <div className="border border-[#787878] w-[200px] "></div>
-          <GiCommercialAirplane color="black" size={36} />
-          <div className="border border-[#787878] w-[200px] "></div>
+          <div className="border border-[#787878] w-full md:w-[200px] "></div>
+          <div>
+            <GiCommercialAirplane color="black" size={36} />
+          </div>
+          <div className="border border-[#787878] w-full md:w-[200px] "></div>
         </motion.div>
         <div>
           <h1 className="text-xl text-black font-light uppercase">
@@ -707,17 +821,19 @@ export default function Home() {
           </h1>
         </div>
         <motion.div
-          initial={{ opacity: 0, x: -600 }}
+          initial={{ opacity: 0, x: -150 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.3 }}
-          className="my-8 flex gap-x-4 items-center"
+          className="my-8 flex gap-x-4 items-center w-full md:justify-center"
         >
-          <div className="border border-[#787878] w-[200px] "></div>
-          <GiCommercialAirplane color="black" size={36} />
-          <div className="border border-[#787878] w-[200px] "></div>
+          <div className="border border-[#787878] w-full md:w-[200px] "></div>
+          <div>
+            <GiCommercialAirplane color="black" size={36} />
+          </div>
+          <div className="border border-[#787878] w-full md:w-[200px] "></div>
         </motion.div>
-        <div className="w-full max-w-7xl mt-6 px-4">
+        <div className="w-full max-w-7xl mt-2 md:mt-6 px-4">
           <Swiper
             modules={[Navigation, Pagination]}
             navigation
@@ -764,8 +880,9 @@ export default function Home() {
           `}</style>
         </div>
       </motion.section>
+
       <footer className="bg-[#002C52] w-full p-6 flex flex-col items-center justify-center">
-        <div className="flex items-center gap-x-8">
+        <div className="flex flex-col md:flex-row items-center gap-x-8 gap-y-2 md:gap-y-0">
           <button className="font-light text-white">Termos & Condições</button>
           <button className="text-white">Políticas De Privacidade</button>
         </div>
