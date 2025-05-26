@@ -12,7 +12,7 @@ import { Link } from "react-scroll";
 import NextLink from "next/link";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const imagens = [
@@ -35,6 +35,33 @@ export default function Home() {
     "/images/galeria/17.webp",
   ];
   const [shouldStartCount, setShouldStartCount] = useState(false);
+
+  const calculateTimeLeft = () => {
+    const targetDate = new Date("2025-06-27T08:00:00");
+    const now = new Date();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+      return { days: "00", hours: "00", minutes: "00", seconds: "00" };
+    }
+
+    const days = String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, '0');
+    const hours = String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+    const minutes = String(Math.floor((difference / (1000 * 60)) % 60)).padStart(2, '0');
+    const seconds = String(Math.floor((difference / 1000) % 60)).padStart(2, '0');
+
+    return { days, hours, minutes, seconds };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+    
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <main className="bg-[#001C34]">
@@ -64,24 +91,24 @@ export default function Home() {
           </div>
           <div className="mt-6 w-full md:w-auto px-4 md:px-0">
             <h1 className="text-white text-lg mb-2 ">Faltam:</h1>
-            <div className="flex flex-row gap-4 ">
-              <div className="rounded-lg bg-[#B80104] w-full  flex flex-col items-center justify-center">
-                <h1 className="text-white font-bold text-3xl">36</h1>
-                <span className="text-center text-white">Dias</span>
-              </div>
-              <div className="rounded-lg bg-[#B80104] w-full  flex flex-col items-center justify-center">
-                <h1 className="text-white font-bold text-3xl">09</h1>
-                <span className="text-center text-white">Horas</span>
-              </div>
-              <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
-                <h1 className="text-white font-bold text-3xl">35</h1>
-                <span className="text-center text-white">Minutos</span>
-              </div>
-              <div className="rounded-lg bg-[#B80104] w-full  flex flex-col items-center justify-center">
-                <h1 className="text-white font-bold text-3xl">09</h1>
-                <span className="text-center text-white">Segundos</span>
-              </div>
-            </div>
+         <div className="flex flex-row gap-4">
+      <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
+        <h1 className="text-white font-bold text-3xl">{timeLeft.days}</h1>
+        <span className="text-center text-white">Dias</span>
+      </div>
+      <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
+        <h1 className="text-white font-bold text-3xl">{timeLeft.hours}</h1>
+        <span className="text-center text-white">Horas</span>
+      </div>
+      <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
+        <h1 className="text-white font-bold text-3xl">{timeLeft.minutes}</h1>
+        <span className="text-center text-white">Minutos</span>
+      </div>
+      <div className="rounded-lg bg-[#B80104] w-full flex flex-col items-center justify-center">
+        <h1 className="text-white font-bold text-3xl">{timeLeft.seconds}</h1>
+        <span className="text-center text-white">Segundos</span>
+      </div>
+    </div>
             {/* <div className="mt-8">
               <h1 className="uppercase text-white text-lg text-center md:text-start">
                 Você é nosso convidado especial para o Bonanza Fly-in 2024! Clique no botão abaixo e garanta sua presença.
