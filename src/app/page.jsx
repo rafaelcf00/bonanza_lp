@@ -432,7 +432,7 @@ export default function Home() {
         className="min-h-screen bg-[#F0F0F0] px-4 md:px-0 flex flex-col items-center justify-center pt-8 md:pt-16"
       >
         <div className="">
-          <h1 className="uppercase text-3xl md:text-5xl text-center font-bold text-[#002C52] md:leading-16 max-w-4xl">
+          <h1 className="uppercase text-2xl md:text-5xl text-center font-bold text-[#002C52] md:leading-16 max-w-4xl">
             <span className="text-[#B80104]">grandes marcas</span>{" "}
             <span>que vão fazer esse encontro acontecer</span>
           </h1>
