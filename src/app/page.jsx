@@ -918,7 +918,7 @@ export default function Home() {
             </span>{" "}
             abaixo e venha voar com a gente!
           </h1>
-          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 border">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="order-2 lg:order-1 p-2 hidden md:block">
               <div className="mb-4 ">
                 <Image
