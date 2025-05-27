@@ -393,7 +393,7 @@ export default function Home() {
           <h1 className="text-[#F0F0F0] font-bold text-3xl md:text-5xl text-center md:leading-16 max-w-4xl">
             Você é nosso{" "}
             <span className="font-bold text-[#EF1833]">convidado especial</span>{" "}
-            para o Bonanza Fly-in 2024!
+            para o Bonanza Fly-in 2025!
           </h1>
           {/* <p className="text-[#F0F0F0] text-lg mt-4 text-center max-w-2xl">
              Clique
@@ -1272,7 +1272,7 @@ export default function Home() {
         </div> */}
         <div className="mt-4">
           <p className="text-center md:text-start text-white">
-            Bonanza Fly-in | © Copyright 2024 - Todos os direitos Reservados
+            Bonanza Fly-in | © Copyright 2025 - Todos os direitos Reservados
           </p>
         </div>
       </footer>
