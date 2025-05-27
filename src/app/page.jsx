@@ -1266,10 +1266,10 @@ export default function Home() {
       </motion.section>
 
       <footer className="bg-[#002C52] w-full p-6 flex flex-col items-center justify-center">
-        <div className="flex flex-col md:flex-row items-center gap-x-8 gap-y-2 md:gap-y-0">
+        {/* <div className="flex flex-col md:flex-row items-center gap-x-8 gap-y-2 md:gap-y-0">
           <button className="font-light text-white">Termos & Condições</button>
           <button className="text-white">Políticas De Privacidade</button>
-        </div>
+        </div> */}
         <div className="mt-4">
           <p className="text-center md:text-start text-white">
             Bonanza Fly-in | © Copyright 2024 - Todos os direitos Reservados
