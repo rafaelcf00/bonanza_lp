@@ -292,7 +292,7 @@ export default function Home() {
         viewport={{ once: true, amount: 0.3 }}
         className="h-auto md:min-h-screen bg-[#F0F0F0] px-4 md:px-0 flex flex-col items-center justify-center py-8 md:py-16"
       >
-        <h1 className="text-[#001C34] font-bold text-3xl md:text-5xl max-w-5xl text-center md:leading-16 uppercase">
+        <h1 className="text-[#001C34] font-bold text-2xl md:text-5xl max-w-5xl text-center md:leading-16 uppercase">
           Confira o{" "}
           <span className="font-bold text-[#EF1833]">Bonanza Fly-in</span> em
           matéria do programa AutoEsporte na GloboPlay
@@ -386,7 +386,7 @@ export default function Home() {
         className="bg-[#001C34] px-4 md:px-0"
       >
         <div className="flex flex-col items-center justify-center  py-16">
-          <h1 className="text-[#F0F0F0] font-bold text-3xl md:text-5xl text-center md:leading-16 max-w-5xl uppercase">
+          <h1 className="text-[#F0F0F0] font-bold text-2xl md:text-5xl text-center md:leading-16 max-w-5xl uppercase">
             Você é nosso{" "}
             <span className="font-bold text-[#EF1833]">convidado especial</span>{" "}
             para o Bonanza Fly-in 2025!
@@ -395,8 +395,8 @@ export default function Home() {
              Clique
             no botão abaixo e garanta sua presença.
           </p> */}
-          <div className="mt-8 flex flex-col md:flex-row items-center gap-x-4">
-            <div>
+          <div className="mt-8 flex flex-col md:flex-row items-center gap-x-4 gap-y-4">
+            <div className="w-full md:w-auto">
               <NextLink
                 className="bg-[#EF1833] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full  hover:opacity-90 transition-all duration-200"
                 href={"https://oticket.com.br/event/7710/bonanza-fly-in-2025"}
@@ -407,7 +407,7 @@ export default function Home() {
                 </span>
               </NextLink>
             </div>
-            <div>
+            <div className="w-full md:w-auto">
                <Link
                 className="bg-transparent border border-[#EF1833] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full  hover:opacity-90 transition-all duration-200"
                 to="formulariopilotos"
@@ -925,7 +925,7 @@ export default function Home() {
         
       >
         <div id="formulariopilotos" className="w-full m-auto py-12 px-4 md:px-24 bg-[#F0F0F0] inline-flex flex-col justify-center items-center gap-2 ">
-          <h1 className=" text-3xl uppercase md:text-5xl text-center font-bold text-[#002C52] md:leading-16 max-w-5xl mb-4 md:mb-16">
+          <h1 className=" text-2xl uppercase md:text-5xl text-center font-bold text-[#002C52] md:leading-16 max-w-5xl mb-4 md:mb-16">
             <span className="">Você é piloto?</span>{" "}
             <span className="text-[#B80104] font-bold">
               Preencha o formulário
