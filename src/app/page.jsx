@@ -395,7 +395,7 @@ export default function Home() {
              Clique
             no botão abaixo e garanta sua presença.
           </p> */}
-          <div className="mt-8 flex flex-row items-center gap-x-4">
+          <div className="mt-8 flex flex-col md:flex-row items-center gap-x-4">
             <div>
               <NextLink
                 className="bg-[#EF1833] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full  hover:opacity-90 transition-all duration-200"
