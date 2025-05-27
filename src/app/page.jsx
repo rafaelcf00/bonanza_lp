@@ -41,20 +41,32 @@ export default function Home() {
   const [shouldStartCount, setShouldStartCount] = useState(false);
 
   const schema = yup.object().shape({
-    nome: yup.string().required("Nome é obrigatório"),
-    email: yup
+    pilotoemcomando: yup.string().required("Piloto em comando é obrigatório"),
+    datadechegada: yup.string().required("Data de chegada é obrigatória"),
+    horarioestimadochegada: yup
       .string()
-      .email("E-mail inválido")
-      .required("E-mail é obrigatório"),
-    telefone: yup
+      .required("Horário estimado de chegada é obrigatório"),
+    diadesaida: yup.string().required("Dia de saída é obrigatório"),
+    codigoanac: yup.string().required("Código ANAC é obrigatório"),
+    aeroportoorigem: yup.string().required("Aeroporto de origem é obrigatório"),
+    matriculaaeronave: yup
       .string()
-      .matches(/\(\d{2}\) \d{5}-\d{4}/, "Whatsapp inválido")
-      .required("WhatsApp é obrigatório"),
-    semana: yup
+      .required("Matrícula da aeronave é obrigatória"),
+    horarioestimadodesaida: yup
       .string()
-      .oneOf(["primeira", "segunda", "duas"], "Opção inválida")
-      .required("Semana é obrigatória"),
+      .required("Horário estimado de saída é obrigatório"),
+    telefonecontato: yup.string().required("Telefone de contato é obrigatório"),
+
+    personsonboard: yup
+      .string()
+      .required("Número de pessoas a bordo é obrigatório"),
+
+    modeloaeronave: yup.string().required("Modelo da aeronave é obrigatório"),
+    precisaraabastecimento: yup
+      .string()
+      .required("Precisará de abastecimento é obrigatório"),
   });
+
 
   const calculateTimeLeft = () => {
     const targetDate = new Date("2025-06-27T08:00:00");
@@ -96,24 +108,37 @@ export default function Home() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors, isSubmitting },
     reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
 
+  console.log("Watch data: ", watch());
+
   const onSubmit = async (data) => {
+    console.log("Data submitted: ", data);
     try {
       const formData = new URLSearchParams();
-      formData.append("nome", data.nome);
-      formData.append("email", data.email);
-      formData.append("telefone", data.telefone);
-      formData.append("semana", data.semana);
+      formData.append("pilotoemcomando", data.pilotoemcomando);
+      formData.append("datadechegada", data.datadechegada);
+      formData.append("horarioestimadochegada", data.horarioestimadochegada);
+      formData.append("diadesaida", data.diadesaida);
+      formData.append("codigoanac", data.codigoanac);
+      formData.append("aeroportoorigem", data.aeroportoorigem);
+      formData.append("matriculaaeronave", data.matriculaaeronave);
+      formData.append("horarioestimadodesaida", data.horarioestimadodesaida);
+      formData.append("telefonecontato", data.telefonecontato);
+      formData.append("personsonboard", data.personsonboard);
+      formData.append("modeloaeronave", data.modeloaeronave);
+      formData.append("precisaraabastecimento", data.precisaraabastecimento);
+      
 
       console.log(formData.toString());
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzEFZf6TxijOK_P1Zzzo9U-HW6msrP1aMPN33K6D8yeAxGI5I1-U5g76FQ7aBcCZ6cw/exec",
+        "https://script.google.com/macros/s/AKfycbw7wXexk-Y7teAKmTeJRnMtGvtcs3imqTVP4nJJWLZ3AEzoyqLAlwhLSL5mO7n_t0J2/exec",
         {
           method: "POST",
           headers: {
@@ -127,11 +152,11 @@ export default function Home() {
 
       if (response.ok) {
         setMessage(
-          "Recebemos sua pré-reserva. Em breve entraremos em contato!"
+          "Informações recebidas com sucesso!"
         );
         reset();
       } else {
-        setMessage("Erro ao cadastrar lead.");
+        setMessage("Erro ao enviar informações.");
       }
     } catch (error) {
       setMessage("Erro na conexão com o Google Sheets.");
@@ -271,7 +296,7 @@ export default function Home() {
         viewport={{ once: true, amount: 0.3 }}
         className="h-auto md:min-h-screen bg-[#F0F0F0] px-4 md:px-0 flex flex-col items-center justify-center py-8 md:py-16"
       >
-        <h1 className="text-[#001C34] font-bold text-3xl md:text-5xl max-w-4xl text-center md:leading-16">
+        <h1 className="text-[#001C34] font-bold text-3xl md:text-5xl max-w-4xl text-center md:leading-16 uppercase">
           Confira o{" "}
           <span className="font-bold text-[#EF1833]">Bonanza Fly-in</span> em
           matéria do programa AutoEsporte na GloboPlay
@@ -878,6 +903,365 @@ export default function Home() {
               font-weight: bold;
             }
           `}</style>
+        </div>
+      </motion.section>
+
+      <motion.section
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="w-full m-auto py-12 px-4 md:px-24 bg-[#F0F0F0] inline-flex flex-col justify-center items-center gap-2 ">
+          <h1 className=" text-3xl md:text-5xl text-center font-bold text-[#002C52] md:leading-16 max-w-4xl mb-4 md:mb-16">
+            <span className="">Você é piloto?</span>{" "}
+            <span className="text-[#B80104] font-bold">
+              Preencha o formulário
+            </span>{" "}
+            abaixo e venha voar com a gente!
+          </h1>
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 border">
+            <div className="order-2 lg:order-1 p-2 hidden md:block">
+              <div className="mb-4 ">
+                <Image
+                  src={"/images/logo_bonanza.png"}
+                  alt="Logo do Bonanza"
+                  width={250}
+                  height={250}
+                  className="w-auto h-auto"
+                />
+              </div>
+              <div>
+                <h1 className="text-[#002C52] font-bold text-3xl md:text-4xl  md:leading-16 max-w-4xl text-center md:text-start">
+                  Coleta de informações{" "}
+                  <span className="text-[#B80104] font-bold">para pilotos</span>
+                </h1>
+                <p className="text-[#002C52] text-lg mt-2  max-w-xl text-center md:text-start">
+                  Preencha o formulário para sua melhor experiência no
+                  Bonanza Fly-in 2025. As informações serão
+                  utilizadas para organizar a chegada e saída dos aviões, bem
+                  como para garantir que você tenha uma experiência incrível
+                  durante o evento.{" "}
+                  <span className="text-[#B80104] font-bold">
+                    Não se preocupe, seus dados estarão seguros conosco!
+                  </span>
+
+                </p>
+              </div>
+            </div>
+            <div className=" order-1 lg:order-2 ">
+              <div className="flex flex-col items-center ">
+                {/* <link
+                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+                  rel="stylesheet"
+                /> */}
+                <div className="w-full bg-[#1a2e47] bg-opacity-95 p-6 rounded-2xl shadow-2xl">
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="custom-scrollbar space-y-6 overflow-auto max-h-[500px] pr-2"
+                  >
+                    {message ? (
+                      <p className="mt-4 p-5 bg-green-500 text-white text-center border-green-700">
+                        <i
+                          className="fa fa-check-circle fa-3x"
+                          aria-hidden="true"
+                        ></i>
+                        <h4 className="text-lg mt-3">{message}</h4>
+                      </p>
+                    ) : (
+                      <>
+                        <div>
+                          <label className="block text-white mb-2">
+                            Piloto em comando
+                          </label>
+                          <input
+                            {...register("pilotoemcomando")}
+                            type="text"
+                            className={`w-full px-4 py-2 border border-[#FFF] bg-white/90 placeholder:text-[#002C52] text-[#002C52] rounded-xl outline-none transition ${
+                              errors.pilotoemcomando
+                                ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          />
+                          {errors.pilotoemcomando && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.pilotoemcomando.message}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-white mb-2">
+                            Data de chegada
+                          </label>
+                          <select
+                            {...register("datadechegada")}
+                            className={`w-full px-4 py-3 pr-8 border border-[#FFF] bg-white/90 placeholder:text-[#002C52] text-[#002C52] rounded-xl outline-none transition ${
+                              errors.datadechegada
+                                 ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          >
+                            <option defaultChecked value="">
+                              Selecione
+                            </option>
+                            <option value="sabado-29-06">Sábado 29/06</option>
+                            <option value="sexta-28-06">Sexta 28/06</option>
+                            <option value="quinta-27-06">Quinta 27/06</option>
+                          </select>
+                          {errors.datadechegada && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.datadechegada.message}
+                            </p>
+                          )}
+                        </div>
+                        <div>
+                          <label className="block text-white mb-2">
+                            Horário estimado de chegada (Hora Local - GMT -3)
+                          </label>
+                          <input
+                            {...register("horarioestimadochegada")}
+                            type="text"
+                            // autoComplete={false}
+                            className={`w-full px-4 py-2  bg-white placeholder:text-[#002C52] text-[#002C52] outline-none rounded-lg ${
+                              errors.horarioestimadochegada
+                                ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          />
+                          {errors.horarioestimadochegada && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.horarioestimadochegada.message}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-white mb-2">
+                            Dia de saída
+                          </label>
+                          <select
+                            {...register("diadesaida")}
+                            className={`w-full px-4 py-3 outline-none bg-white placeholder:text-[#002C52] text-[#002C52] rounded-lg ${
+                              errors.diadesaida
+                                ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          >
+                            <option value="">Selecione</option>
+                            <option value="sexta-28-06">Sexta 28/06</option>
+                            <option value="sabado-29-06">Sábado 29/06</option>
+                            <option value="domingo-30-06">Domingo 30/06</option>
+                          </select>
+                          {errors.diadesaida && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.diadesaida.message}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-white mb-2">
+                            Código ANAC do piloto em comando
+                          </label>
+                          <input
+                            {...register("codigoanac")}
+                            type="text"
+                            // autoComplete={false}
+                            className={`w-full px-4 py-2 outline-none bg-white placeholder:text-[#002C52] text-[#002C52] rounded-lg ${
+                              errors.codigoanac
+                                ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          />
+                          {errors.codigoanac && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.codigoanac.message}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-white mb-2">
+                            Aeroporto de origem
+                          </label>
+                          <input
+                            {...register("aeroportoorigem")}
+                            type="text"
+                            // autoComplete={false}
+                            className={`w-full px-4 py-2 outline-none bg-white placeholder:text-[#002C52] text-[#002C52] rounded-lg ${
+                              errors.aeroportoorigem
+                                ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          />
+                          {errors.aeroportoorigem && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.aeroportoorigem.message}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-white mb-2">
+                            Matrícula da aeronave
+                          </label>
+                          <input
+                            {...register("matriculaaeronave")}
+                            type="text"
+                            // autoComplete={false}
+                            className={`w-full px-4 py-2 outline-none bg-white placeholder:text-[#002C52] text-[#002C52] rounded-lg ${
+                              errors.matriculaaeronave
+                                ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          />
+                          {errors.matriculaaeronave && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.matriculaaeronave.message}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-white mb-2">
+                            Horário estimado de saída (Hora Local - GMT -3)
+                          </label>
+                          <input
+                            {...register("horarioestimadodesaida")}
+                            type="text"
+                            // autoComplete={false}
+                            className={`w-full px-4 py-2 outline-none bg-white placeholder:text-[#002C52] text-[#002C52] rounded-lg ${
+                              errors.horarioestimadodesaida
+                                ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          />
+                          {errors.horarioestimadodesaida && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.horarioestimadodesaida.message}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-white mb-2">
+                            Telefone de contato (com código de área)
+                          </label>
+                          <input
+                            {...register("telefonecontato")}
+                            type="text"
+                            // autoComplete={false}
+                            className={`w-full px-4 py-2 outline-none bg-white placeholder:text-[#002C52] text-[#002C52] rounded-lg ${
+                              errors.telefonecontato
+                                ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          />
+                          {errors.telefonecontato && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.telefonecontato.message}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-white mb-2">
+                            POB - Persons On Board (Será necessário o cadastro
+                            individual de todos)
+                          </label>
+                          <input
+                            {...register("personsonboard")}
+                            type="text"
+                            // autoComplete={false}
+                            className={`w-full px-4 py-2 outline-none bg-white placeholder:text-[#002C52] text-[#002C52] rounded-lg ${
+                              errors.personsonboard
+                                ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          />
+                          {errors.personsonboard && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.personsonboard.message}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-white mb-2">
+                            Modelo da Aeronave
+                          </label>
+                          <input
+                            {...register("modeloaeronave")}
+                            type="text"
+                            // autoComplete={false}
+                            className={`w-full px-4 py-2 outline-none bg-white placeholder:text-[#002C52] text-[#002C52] rounded-lg ${
+                              errors.modeloaeronave
+                                ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          />
+                          {errors.modeloaeronave && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.modeloaeronave.message}
+                            </p>
+                          )}
+                        </div>
+
+                        <div>
+                          <label className="block text-white mb-2">
+                            Precisará de abastecimento?
+                          </label>
+                          <select
+                            {...register("precisaraabastecimento")}
+                            className={`w-full px-4 py-2 outline-none bg-white placeholder:text-[#002C52] text-[#002C52] rounded-lg ${
+                              errors.precisaraabastecimento
+                                ? "border-red-500"
+                                : "border-[#FFF]"
+                            }`}
+                          >
+                            <option value="">Selecione</option>
+                            <option value="sim-avgas">Sim, Avgas</option>
+                            <option value="sim-jetfuel">Sim, Jet Fuel</option>
+                            <option value="nao">Não</option>
+                            <option value="nao-sei">Ainda não sei</option>
+                          </select>
+                          {errors.precisaraabastecimento && (
+                            <p className="text-red-500 text-sm mt-2">
+                              {errors.precisaraabastecimento.message}
+                            </p>
+                          )}
+                        </div>
+
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full flex rounded-xl justify-center items-center gap-2 px-4 py-3 bg-white text-[#002C52] font-bold text-xl cursor-pointer transition hover:bg-white/90 disabled:bg-gray-400"
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <i className="fa fa-circle-notch fa-spin"></i>
+                              Salvando...
+                            </>
+                          ) : (
+                            "Enviar"
+                          )}
+                        </button>
+                        <div className="flex items-center justify-end text-center gap-2">
+                          <p className="font-medium text-lg text-white">
+                            Processado por
+                          </p>
+                          <img
+                            src="https://cdn.oticket.com.br/logo_light.png"
+                            alt="Imagem"
+                            className="w-[100px]"
+                          />
+                        </div>
+                      </>
+                    )}
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.section>
 
