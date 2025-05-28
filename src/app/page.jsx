@@ -408,19 +408,17 @@ export default function Home() {
               </NextLink>
             </div>
             <div className="w-full md:w-auto">
-               <Link
+              <Link
                 className="bg-transparent border border-[#EF1833] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full  hover:opacity-90 transition-all duration-200"
                 to="formulariopilotos"
                 smooth={true}
                 duration={900}
                 offset={0}
               >
-                 <span className="text-[#EF1833] text-base font-bold whitespace-nowrap uppercase">
+                <span className="text-[#EF1833] text-base font-bold whitespace-nowrap uppercase">
                   Formulário para pilotos
                 </span>
               </Link>
-             
-               
             </div>
           </div>
         </div>
@@ -662,7 +660,7 @@ export default function Home() {
           </div>
           <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Image
-              src={"/images/patrocinadores/eurobike.webp"}
+              src={"/images/patrocinadores/eurobike.png"}
               alt="Logo da Eurobike"
               width={180}
               height={180}
@@ -922,9 +920,11 @@ export default function Home() {
       <motion.section
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        
       >
-        <div id="formulariopilotos" className="w-full m-auto py-12 px-4 md:px-24 bg-[#F0F0F0] inline-flex flex-col justify-center items-center gap-2 ">
+        <div
+          id="formulariopilotos"
+          className="w-full m-auto py-12 px-4 md:px-24 bg-[#F0F0F0] inline-flex flex-col justify-center items-center gap-2 "
+        >
           <h1 className=" text-2xl uppercase md:text-5xl text-center font-bold text-[#002C52] md:leading-16 max-w-5xl mb-4 md:mb-16">
             <span className="">Você é piloto?</span>{" "}
             <span className="text-[#B80104] font-bold">
