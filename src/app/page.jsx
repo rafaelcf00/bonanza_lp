@@ -67,7 +67,6 @@ export default function Home() {
       .required("Precisará de abastecimento é obrigatório"),
   });
 
-
   const calculateTimeLeft = () => {
     const targetDate = new Date("2025-06-27T08:00:00");
     const now = new Date();
@@ -133,7 +132,6 @@ export default function Home() {
       formData.append("personsonboard", data.personsonboard);
       formData.append("modeloaeronave", data.modeloaeronave);
       formData.append("precisaraabastecimento", data.precisaraabastecimento);
-      
 
       console.log(formData.toString());
 
@@ -151,9 +149,7 @@ export default function Home() {
       console.log(response);
 
       if (response.ok) {
-        setMessage(
-          "Informações recebidas com sucesso!"
-        );
+        setMessage("Informações recebidas com sucesso!");
         reset();
       } else {
         setMessage("Erro ao enviar informações.");
@@ -296,7 +292,7 @@ export default function Home() {
         viewport={{ once: true, amount: 0.3 }}
         className="h-auto md:min-h-screen bg-[#F0F0F0] px-4 md:px-0 flex flex-col items-center justify-center py-8 md:py-16"
       >
-        <h1 className="text-[#001C34] font-bold text-3xl md:text-5xl max-w-4xl text-center md:leading-16 uppercase">
+        <h1 className="text-[#001C34] font-bold text-2xl md:text-5xl max-w-5xl text-center md:leading-16 uppercase">
           Confira o{" "}
           <span className="font-bold text-[#EF1833]">Bonanza Fly-in</span> em
           matéria do programa AutoEsporte na GloboPlay
@@ -390,25 +386,40 @@ export default function Home() {
         className="bg-[#001C34] px-4 md:px-0"
       >
         <div className="flex flex-col items-center justify-center  py-16">
-          <h1 className="text-[#F0F0F0] font-bold text-3xl md:text-5xl text-center md:leading-16 max-w-4xl">
+          <h1 className="text-[#F0F0F0] font-bold text-2xl md:text-5xl text-center md:leading-16 max-w-5xl uppercase">
             Você é nosso{" "}
             <span className="font-bold text-[#EF1833]">convidado especial</span>{" "}
-            para o Bonanza Fly-in 2024!
+            para o Bonanza Fly-in 2025!
           </h1>
           {/* <p className="text-[#F0F0F0] text-lg mt-4 text-center max-w-2xl">
              Clique
             no botão abaixo e garanta sua presença.
           </p> */}
-          <div className="mt-8">
-            <NextLink
-              className="bg-[#EF1833] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full  hover:opacity-90 transition-all duration-200"
-              href={"https://oticket.com.br/event/7710/bonanza-fly-in-2025"}
-              target="_blank"
-            >
-              <span className="text-white text-xl font-bold whitespace-nowrap uppercase">
-                Garanta sua presença
-              </span>
-            </NextLink>
+          <div className="mt-8 flex flex-col md:flex-row items-center gap-x-4 gap-y-4">
+            <div className="w-full md:w-auto">
+              <NextLink
+                className="bg-[#EF1833] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full  hover:opacity-90 transition-all duration-200"
+                href={"https://oticket.com.br/event/7710/bonanza-fly-in-2025"}
+                target="_blank"
+              >
+                <span className="text-white text-base font-bold whitespace-nowrap uppercase">
+                  Garanta sua presença
+                </span>
+              </NextLink>
+            </div>
+            <div className="w-full md:w-auto">
+              <Link
+                className="bg-transparent border border-[#EF1833] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full  hover:opacity-90 transition-all duration-200"
+                to="formulariopilotos"
+                smooth={true}
+                duration={900}
+                offset={0}
+              >
+                <span className="text-[#EF1833] text-base font-bold whitespace-nowrap uppercase">
+                  Formulário para pilotos
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
       </motion.section>
@@ -419,7 +430,7 @@ export default function Home() {
         className="min-h-screen bg-[#F0F0F0] px-4 md:px-0 flex flex-col items-center justify-center pt-8 md:pt-16"
       >
         <div className="">
-          <h1 className="uppercase text-3xl md:text-5xl text-center font-bold text-[#002C52] md:leading-16 max-w-4xl">
+          <h1 className="uppercase text-2xl md:text-5xl text-center font-bold text-[#002C52] md:leading-16 max-w-4xl">
             <span className="text-[#B80104]">grandes marcas</span>{" "}
             <span>que vão fazer esse encontro acontecer</span>
           </h1>
@@ -649,7 +660,7 @@ export default function Home() {
           </div>
           <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
-              src={"/images/patrocinadores/eurobike.webp"}
+              src={"/images/patrocinadores/eurobike.png"}
               alt="Logo da Eurobike"
               width={180}
               height={180}
@@ -950,15 +961,18 @@ export default function Home() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <div className="w-full m-auto py-12 px-4 md:px-24 bg-[#F0F0F0] inline-flex flex-col justify-center items-center gap-2 ">
-          <h1 className=" text-3xl md:text-5xl text-center font-bold text-[#002C52] md:leading-16 max-w-4xl mb-4 md:mb-16">
+        <div
+          id="formulariopilotos"
+          className="w-full m-auto py-12 px-4 md:px-24 bg-[#F0F0F0] inline-flex flex-col justify-center items-center gap-2 "
+        >
+          <h1 className=" text-2xl uppercase md:text-5xl text-center font-bold text-[#002C52] md:leading-16 max-w-5xl mb-4 md:mb-16">
             <span className="">Você é piloto?</span>{" "}
             <span className="text-[#B80104] font-bold">
               Preencha o formulário
             </span>{" "}
             abaixo e venha voar com a gente!
           </h1>
-          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 border">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="order-2 lg:order-1 p-2 hidden md:block">
               <div className="mb-4 ">
                 <Image
@@ -975,15 +989,13 @@ export default function Home() {
                   <span className="text-[#B80104] font-bold">para pilotos</span>
                 </h1>
                 <p className="text-[#002C52] text-lg mt-2  max-w-xl text-center md:text-start">
-                  Preencha o formulário para sua melhor experiência no
-                  Bonanza Fly-in 2025. As informações serão
-                  utilizadas para organizar a chegada e saída dos aviões, bem
-                  como para garantir que você tenha uma experiência incrível
-                  durante o evento.{" "}
+                  Preencha o formulário para sua melhor experiência no Bonanza
+                  Fly-in 2025. As informações serão utilizadas para organizar a
+                  chegada e saída dos aviões, bem como para garantir que você
+                  tenha uma experiência incrível durante o evento.{" "}
                   <span className="text-[#B80104] font-bold">
                     Não se preocupe, seus dados estarão seguros conosco!
                   </span>
-
                 </p>
               </div>
             </div>
@@ -1036,7 +1048,7 @@ export default function Home() {
                             {...register("datadechegada")}
                             className={`w-full px-4 py-3 pr-8 border border-[#FFF] bg-white/90 placeholder:text-[#002C52] text-[#002C52] rounded-xl outline-none transition ${
                               errors.datadechegada
-                                 ? "border-red-500"
+                                ? "border-red-500"
                                 : "border-[#FFF]"
                             }`}
                           >
@@ -1312,7 +1324,7 @@ export default function Home() {
         </div> */}
         <div className="mt-4">
           <p className="text-center md:text-start text-white">
-            Bonanza Fly-in | © Copyright 2024 - Todos os direitos Reservados
+            Bonanza Fly-in | © Copyright 2025 - Todos os direitos Reservados
           </p>
         </div>
       </footer>
