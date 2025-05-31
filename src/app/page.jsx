@@ -443,7 +443,7 @@ export default function Home() {
           </h1>
         </div>
         <hr className="border-[#8A9DAD] mt-4 mb-8 w-[80%]" />
-        <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+        <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
           <Image
             src={"/images/bradesco_logo.webp"}
             alt="Logo do Bradesco"
@@ -454,7 +454,7 @@ export default function Home() {
         </div>
         <hr className="border-[#8A9DAD] mt-8  w-[80%]" />
         <div className="my-8 grid grid-cols-2 md:grid-cols-5 gap-x-12 gap-y-12">
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/tam.webp"}
               alt="Logo da TAM"
@@ -463,7 +463,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          {/* <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Image
               src={"/images/patrocinadores/robinson.webp"}
               alt="Logo da Robinson"
@@ -471,8 +471,8 @@ export default function Home() {
               height={180}
               className="w-auto h-auto"
             />
-          </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          </div> */}
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/perto.webp"}
               alt="Logo da Perto"
@@ -481,7 +481,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          {/* <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Image
               src={"/images/patrocinadores/jpmartins.webp"}
               alt="Logo da JP Martins"
@@ -489,8 +489,8 @@ export default function Home() {
               height={180}
               className="w-auto h-auto"
             />
-          </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          </div> */}
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/inpaer.webp"}
               alt="Logo da Inpaer"
@@ -500,7 +500,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/vkn.webp"}
               alt="Logo da VKN"
@@ -509,7 +509,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/sarasota.webp"}
               alt="Logo da Sarasota"
@@ -518,7 +518,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/avantto.webp"}
               alt="Logo da Avantto"
@@ -527,7 +527,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          {/* <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Image
               src={"/images/patrocinadores/bravo.webp"}
               alt="Logo da Bravo"
@@ -535,8 +535,8 @@ export default function Home() {
               height={180}
               className="w-auto h-auto"
             />
-          </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          </div> */}
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/plane.webp"}
               alt="Logo da Plane"
@@ -546,7 +546,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/select.webp"}
               alt="Logo da Select"
@@ -555,7 +555,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/diamond.webp"}
               alt="Logo da Diamond"
@@ -564,7 +564,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          {/* <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Image
               src={"/images/patrocinadores/panam.webp"}
               alt="Logo da Panam"
@@ -572,8 +572,8 @@ export default function Home() {
               height={180}
               className="w-auto h-auto"
             />
-          </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          </div> */}
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/astonmartin.webp"}
               alt="Logo da Aston Martin"
@@ -582,7 +582,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/stuggart.webp"}
               alt="Logo da Stuggart"
@@ -592,7 +592,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/viaer.webp"}
               alt="Logo da Viaer"
@@ -601,7 +601,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/garmin.webp"}
               alt="Logo da Garmin"
@@ -610,7 +610,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/mclaren.webp"}
               alt="Logo da McLaren"
@@ -619,7 +619,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/mestaa.webp"}
               alt="Logo da Mestaa"
@@ -628,7 +628,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/aerotrading.webp"}
               alt="Logo da Aerotrading"
@@ -638,7 +638,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/gto.webp"}
               alt="Logo da GTO"
@@ -647,7 +647,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/eurobike.webp"}
               alt="Logo da Eurobike"
@@ -656,7 +656,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/0.webp"}
               alt="Logo da 0"
@@ -665,7 +665,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/kn.webp"}
               alt="Logo da Kn"
@@ -674,7 +674,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          {/* <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Image
               src={"/images/patrocinadores/connect.webp"}
               alt="Logo da Connect"
@@ -682,9 +682,9 @@ export default function Home() {
               height={180}
               className="w-auto h-auto"
             />
-          </div>
+          </div> */}
 
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/vak.webp"}
               alt="Logo da Vak"
@@ -693,7 +693,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/avionics.webp"}
               alt="Logo da Avionics"
@@ -702,7 +702,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          {/* <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Image
               src={"/images/patrocinadores/harleydavidson.webp"}
               alt="Logo da Harley Davidson"
@@ -710,8 +710,8 @@ export default function Home() {
               height={180}
               className="w-auto h-auto"
             />
-          </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          </div> */}
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/vittia.webp"}
               alt="Logo da Vittia"
@@ -720,7 +720,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          {/* <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Image
               src={"/images/patrocinadores/alper.webp"}
               alt="Logo da Alper"
@@ -728,9 +728,9 @@ export default function Home() {
               height={180}
               className="w-auto h-auto"
             />
-          </div>
+          </div> */}
 
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/timbro.webp"}
               alt="Logo da Timbro"
@@ -739,7 +739,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/rodini.webp"}
               alt="Logo da Rodini"
@@ -748,7 +748,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/las.webp"}
               alt="Logo da Las"
@@ -757,7 +757,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/itutrailer.webp"}
               alt="Logo da Itutrailer"
@@ -766,7 +766,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/stecar.webp"}
               alt="Logo da Stecar"
@@ -776,7 +776,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/flowerdesign.webp"}
               alt="Logo da Flower Design"
@@ -785,7 +785,18 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+            <NextLink className="flex items-center" href="https://www.sotreq.com.br/" target="_blank">
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/sotreq.jpeg"}
+              alt="Logo da Sotreq"
+              width={180}
+              height={180}
+              className="w-auto h-auto "
+            />
+          </div>
+            </NextLink>
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/daf.webp"}
               alt="Logo da Daf"
@@ -794,7 +805,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          {/* <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Image
               src={"/images/patrocinadores/dedalo.webp"}
               alt="Logo da Dedalo"
@@ -802,8 +813,8 @@ export default function Home() {
               height={180}
               className="w-auto h-auto"
             />
-          </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          </div> */}
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/colezione.webp"}
               alt="Logo da Colezione"
@@ -812,7 +823,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          {/* <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
             <Image
               src={"/images/patrocinadores/oscarromeo.webp"}
               alt="Logo da Oscar Romeo"
@@ -820,9 +831,9 @@ export default function Home() {
               height={180}
               className="w-auto h-auto"
             />
-          </div>
+          </div> */}
 
-          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/vadicoaero.webp"}
               alt="Logo da Vadico Aero"
@@ -831,6 +842,35 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
+          
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/aerospeed.png"}
+              alt="Logo da Aerospeed"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/bonanzaclube.png"}
+              alt="Logo da Bonanza Clube"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+          {/* <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/hangar33.png"}
+              alt="Logo da Hangar 33"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div> */}
+         
         </div>
       </motion.section>
 
