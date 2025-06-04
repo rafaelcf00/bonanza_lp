@@ -872,7 +872,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          {/* <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/hangar33.png"}
               alt="Logo da Hangar 33"
@@ -880,7 +880,127 @@ export default function Home() {
               height={180}
               className="w-auto h-auto"
             />
-          </div> */}
+          </div>
+
+            <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/Aeromagazine.png"}
+              alt="Logo da Aeromagazine"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/Aviair.png"}
+              alt="Logo da Aviair"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/CAvok-logo.png"}
+              alt="Logo da CAvok"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/Charlie-O.png"}
+              alt="Logo da Charlie-O"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/escrow.png"}
+              alt="Logo da Escrow"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/flightsafety.png"}
+              alt="Logo da Flight Safety"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/limabravo.png"}
+              alt="Logo da Lima Bravo"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/Logo-Fenix.png"}
+              alt="Logo da Logo-Fenix"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/quasar.png"}
+              alt="Logo da Quasar"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/Reserva-Pituba.png"}
+              alt="Logo da Reserva Pituba"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/veloce.png"}
+              alt="Logo da Veloce"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
+
+              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+            <Image
+              src={"/images/patrocinadores/logo-altamogiana.webp"}
+              alt="Logo da Altamogiana"
+              width={180}
+              height={180}
+              className="w-auto h-auto"
+            />
+          </div>
          
         </div>
       </motion.section>
