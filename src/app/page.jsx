@@ -796,17 +796,21 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-            <NextLink className="flex items-center" href="https://www.sotreq.com.br/" target="_blank">
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
-            <Image
-              src={"/images/patrocinadores/sotreq.jpeg"}
-              alt="Logo da Sotreq"
-              width={180}
-              height={180}
-              className="w-auto h-auto "
-            />
-          </div>
-            </NextLink>
+          <NextLink
+            className="flex items-center"
+            href="https://www.sotreq.com.br/"
+            target="_blank"
+          >
+            <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+              <Image
+                src={"/images/patrocinadores/sotreq.jpeg"}
+                alt="Logo da Sotreq"
+                width={180}
+                height={180}
+                className="w-auto h-auto "
+              />
+            </div>
+          </NextLink>
           <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/daf.webp"}
@@ -853,7 +857,7 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-          
+
           <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/aerospeed.png"}
@@ -882,7 +886,7 @@ export default function Home() {
             />
           </div>
 
-            <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/Aeromagazine.png"}
               alt="Logo da Aeromagazine"
@@ -892,7 +896,7 @@ export default function Home() {
             />
           </div>
 
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/Aviair.png"}
               alt="Logo da Aviair"
@@ -902,7 +906,7 @@ export default function Home() {
             />
           </div>
 
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/CAvok-logo.png"}
               alt="Logo da CAvok"
@@ -912,7 +916,7 @@ export default function Home() {
             />
           </div>
 
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/Charlie-O.png"}
               alt="Logo da Charlie-O"
@@ -922,7 +926,7 @@ export default function Home() {
             />
           </div>
 
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/escrow.png"}
               alt="Logo da Escrow"
@@ -932,7 +936,7 @@ export default function Home() {
             />
           </div>
 
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/flightsafety.png"}
               alt="Logo da Flight Safety"
@@ -942,7 +946,7 @@ export default function Home() {
             />
           </div>
 
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/limabravo.png"}
               alt="Logo da Lima Bravo"
@@ -952,7 +956,7 @@ export default function Home() {
             />
           </div>
 
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/Logo-Fenix.png"}
               alt="Logo da Logo-Fenix"
@@ -962,7 +966,7 @@ export default function Home() {
             />
           </div>
 
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/quasar.png"}
               alt="Logo da Quasar"
@@ -972,7 +976,7 @@ export default function Home() {
             />
           </div>
 
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/Reserva-Pituba.png"}
               alt="Logo da Reserva Pituba"
@@ -982,7 +986,7 @@ export default function Home() {
             />
           </div>
 
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/veloce.png"}
               alt="Logo da Veloce"
@@ -992,7 +996,7 @@ export default function Home() {
             />
           </div>
 
-              <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
+          <div className="hover:scale-110 transition-transform duration-300 cursor-pointer flex items-center">
             <Image
               src={"/images/patrocinadores/logo-altamogiana.webp"}
               alt="Logo da Altamogiana"
@@ -1001,7 +1005,6 @@ export default function Home() {
               className="w-auto h-auto"
             />
           </div>
-         
         </div>
       </motion.section>
 
@@ -1175,9 +1178,9 @@ export default function Home() {
                             <option defaultChecked value="">
                               Selecione
                             </option>
-                            <option value="sabado-29-06">Sábado 29/06</option>
-                            <option value="sexta-28-06">Sexta 28/06</option>
-                            <option value="quinta-27-06">Quinta 27/06</option>
+                            <option value="sexta-27-06">Sexta 27/06</option>
+                            <option value="sabado-28-06">Sábado 28/06</option>
+                            <option value="domingo-29-06">Domingo 29/06</option>
                           </select>
                           {errors.datadechegada && (
                             <p className="text-red-500 text-sm mt-2">
@@ -1219,9 +1222,9 @@ export default function Home() {
                             }`}
                           >
                             <option value="">Selecione</option>
-                            <option value="sexta-28-06">Sexta 28/06</option>
-                            <option value="sabado-29-06">Sábado 29/06</option>
-                            <option value="domingo-30-06">Domingo 30/06</option>
+                            <option value="sexta-27-06">Sexta 27/06</option>
+                            <option value="sabado-28-06">Sábado 28/06</option>
+                            <option value="domingo-29-06">Domingo 29/06</option>
                           </select>
                           {errors.diadesaida && (
                             <p className="text-red-500 text-sm mt-2">
