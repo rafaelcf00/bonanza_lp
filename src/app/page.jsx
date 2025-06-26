@@ -1120,6 +1120,17 @@ export default function Home() {
                     Não se preocupe, seus dados estarão seguros conosco!
                   </span>
                 </p>
+                <div className="w-full md:w-[50%] mt-6">
+                  <a
+                    href="/Briefing Fly In BCB 2025.pdf"
+                    download="Briefing Fly In BCB 2025.pdf"
+                    className="bg-[#1a2e47] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full  hover:opacity-90 transition-all duration-200"
+                  >
+                    <span className="text-white text-base font-bold whitespace-nowrap uppercase">
+                      Baixe nosso briefing
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
             <div className=" order-1 lg:order-2 ">
@@ -1436,6 +1447,17 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="w-full md:w-[50%] mt-6 block md:hidden">
+            <a
+              href="/Briefing Fly In BCB 2025.pdf"
+              download="Briefing Fly In BCB 2025.pdf"
+              className="bg-[#1a2e47] cursor-pointer rounded-full px-8 md:px-14 py-2 flex justify-center gap-x-2 items-center flex-1 w-full  hover:opacity-90 transition-all duration-200"
+            >
+              <span className="text-white text-base font-bold whitespace-nowrap uppercase">
+                Baixe nosso briefing
+              </span>
+            </a>
           </div>
         </div>
       </motion.section>
